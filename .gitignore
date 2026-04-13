@@ -1,0 +1,34 @@
+# Cargo build artifacts
+/target
+/debug
+
+# Rust editor backups
+**/*.rs.bk
+
+# MSVC debug symbols
+*.pdb
+
+# Cargo mutants
+**/mutants.out*/
+
+# IDE
+.idea/
+.vscode/
+
+# IMPORTANT: extension.wasm must be committed so users can install
+# the extension directly from GitHub without building from source.
+# Do NOT add *.wasm here.
+
+
+# Added by cargo
+#
+# already existing elements were commented out
+
+#/target
+
+
+# Added by cargo
+#
+# already existing elements were commented out
+
+#/target
