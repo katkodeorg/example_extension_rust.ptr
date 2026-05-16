@@ -1,12 +1,10 @@
-# Hello World — Pointiv Extension Template
+# Hello World Pointiv Extension
 
-A minimal Pointiv extension in Rust/WASM. Greets the user by name and tracks a persistent run counter.
-
-Use this as a starting point for your own extension.
+Rust/WASM template for Pointiv. Greets by name, keeps a run counter, and includes small demos for HTTP, Calendar, and Gmail.
 
 ## Install
 
-Paste your GitHub URL into the Pointiv Extensions panel — no CLI needed.
+Paste your GitHub URL in Pointiv Extensions:
 
 ```
 https://github.com/<your-username>/<your-repo>
@@ -14,33 +12,40 @@ https://github.com/<your-username>/<your-repo>
 
 ## Build
 
-Requires [Rust](https://rustup.rs). Outputs `extension.wasm` in the repo root — commit it so Pointiv can fetch it directly from GitHub.
+Needs [Rust](https://rustup.rs). `./build.sh` writes `extension.wasm` to the repo root. Commit that file so Pointiv can load it from GitHub.
 
-```sh
-./build.sh
-```
+## Try the API demos
+
+Add the permissions you need in `pointiv-extension.json`, rebuild, reinstall.
+
+| Command | Permission | What happens |
+|---------|------------|--------------|
+| `http` | `network` | GET https://httpbin.org/get, show status and body |
+| `calendar` or `cal` | `google_calendar` | Create a test event (title from selection; optional date `YYYY-MM-DD`) |
+| `gmail you@example.com` | `google_gmail` | Send mail (body from selection) |
+
+Google commands need Google connected in Pointiv Settings → Account.
+
+Default behavior (any other command): hello + run counter.
 
 ## Fork
 
-IDs must be globally unique: use `community.<your-name>.<extension-name>`.
+Use a unique id: `community.<your-name>.<extension-name>`.
 
-1. Update `id`, `name`, `author`, and `description` in `pointiv-extension.json`
-2. Edit `src/lib.rs` — the SDK is [`pointiv-extension-api`](https://crates.io/crates/pointiv-extension-api)
-3. Run `./build.sh`, commit `extension.wasm`, push
+1. Edit `pointiv-extension.json` (id, name, author, permissions)
+2. Edit `src/lib.rs`
+3. `./build.sh`, commit `extension.wasm`, push
+
+SDK: [pointiv-extension-api](https://crates.io/crates/pointiv-extension-api)
 
 ## Permissions
 
-Declare what your extension needs in `pointiv-extension.json`. Calling a function without its permission is safe — Pointiv returns empty silently.
+| Permission | Grants |
+|------------|--------|
+| `storage` | Key/value store |
+| `clipboard_read` | Clipboard |
+| `network` | `http::get`, `http::post`, `http::request` |
+| `google_calendar` | `google_calendar::schedule` |
+| `google_gmail` | `google_gmail::send` |
 
-```json
-"permissions": ["storage", "clipboard_read"]
-```
-
-| Permission       | Grants                        |
-|------------------|-------------------------------|
-| `storage`        | Per-extension key/value store |
-| `clipboard_read` | Read the system clipboard     |
-
-## JavaScript alternative
-
-No build step needed. Set `"runtime": "js"` and `"main": "index.js"` in the manifest. See `index.js` for an example.
+Calls without permission fail safely (empty data or an error message).

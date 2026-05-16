@@ -189,9 +189,9 @@ dependencies = [
 
 [[package]]
 name = "pointiv-extension-api"
-version = "0.1.0"
+version = "0.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5ea6868f240445fe72accd750d459f928980b0af38992eefdfecda41f0240651"
+checksum = "474664973bc5eb300ffa55b872f8aa835c7210e97b19d5eac571a66307ee8cbd"
 dependencies = [
  "extism-pdk",
  "serde",

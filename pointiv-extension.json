@@ -2,10 +2,10 @@
   "id": "community.hello-world",
   "name": "Hello World",
   "description": "Sample Pointiv extension in Rust/WASM. Greets you, tracks a run counter. Use as a starting point for your own extension.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "katkodeorg",
   "keywords": ["hello", "hello world", "greet", "greeting", "sample", "template"],
   "runtime": "wasm",
   "main": "extension.wasm",
-  "permissions": ["storage"]
+  "permissions": ["storage", "network", "google_calendar", "google_gmail"]
 }
