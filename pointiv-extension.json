@@ -1,10 +1,9 @@
 {
-  "id": "community.hello-world",
-  "name": "Hello World",
-  "description": "Sample Pointiv extension in Rust/WASM. Greets you, tracks a run counter. Use as a starting point for your own extension.",
-  "version": "1.0.1",
+  "name": "Deprecated Rust Starter",
+  "description": "Retired Rust/WASM starter. Use https://github.com/katkodeorg/pointiv-extension-starter-rust.ptr instead.",
+  "version": "1.0.2",
   "author": "katkodeorg",
-  "keywords": ["hello", "hello world", "greet", "greeting", "sample", "template"],
+  "keywords": ["deprecated", "retired", "rust", "starter"],
   "runtime": "wasm",
   "main": "extension.wasm",
   "permissions": ["storage", "network", "google_calendar", "google_gmail"]

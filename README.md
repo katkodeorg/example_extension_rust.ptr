@@ -1,3 +1,16 @@
+# Deprecated: old Rust starter
+
+This starter has been retired. Use the current Rust starter instead:
+
+```text
+https://github.com/katkodeorg/pointiv-extension-starter-rust.ptr
+```
+
+New Rust extensions should depend on `pointiv-extension-sdk`, not the retired
+`pointiv-extension-api` crate.
+
+The code in this repository remains for historical reference only.
+
 # Hello World Pointiv Extension
 
 Rust/WASM template for Pointiv. Greets by name, keeps a run counter, and includes small demos for HTTP, Calendar, and Gmail.
@@ -30,9 +43,9 @@ Default behavior (any other command): hello + run counter.
 
 ## Fork
 
-Use a unique id: `community.<your-name>.<extension-name>`.
+Your GitHub repo URL is your extension's identity.
 
-1. Edit `pointiv-extension.json` (id, name, author, permissions)
+1. Edit `pointiv-extension.json` (`name`, `author`, `permissions`)
 2. Edit `src/lib.rs`
 3. `./build.sh`, commit `extension.wasm`, push
 
